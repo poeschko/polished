@@ -1,0 +1,55 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+// @flow
+var hsla_1 = require("../hsla");
+describe('hsla', function () {
+    it('should convert numbers to a rgba color', function () {
+        expect({ background: (0, hsla_1.default)(360, 0.75, 0.4, 0.5) }).toEqual({
+            background: 'rgba(179,25,25,0.5)',
+        });
+    });
+    it('should convert numbers to a hex color', function () {
+        expect({ background: (0, hsla_1.default)(360, 0.75, 0.4, 1) }).toEqual({
+            background: '#b31919',
+        });
+    });
+    it('should convert a hlsa object to a rgba color', function () {
+        expect({
+            background: (0, hsla_1.default)({
+                hue: 360,
+                saturation: 0.75,
+                lightness: 0.4,
+                alpha: 0.5,
+            }),
+        }).toEqual({
+            background: 'rgba(179,25,25,0.5)',
+        });
+    });
+    it('should convert a hlsa object to a hex color', function () {
+        expect({
+            background: (0, hsla_1.default)({
+                hue: 360,
+                saturation: 0.75,
+                lightness: 0.4,
+                alpha: 1,
+            }),
+        }).toEqual({
+            background: '#b31919',
+        });
+    });
+    it('should convert to a reduce hex value if possible', function () {
+        expect({ background: (0, hsla_1.default)(360, 1, 0.4, 1) }).toEqual({
+            background: '#c00',
+        });
+    });
+    it('should throw an error if an object and multiple arguments are passed', function () {
+        expect(function () { return ({
+            background: (0, hsla_1.default)({
+                hue: 360,
+                saturation: 0.75,
+                lightness: 0.4,
+                alpha: 1,
+            }, 250, 100, 1),
+        }); }).toThrow('Passed invalid arguments to hsla, please pass multiple numbers e.g. hsla(360, 0.75, 0.4, 0.7) or an object e.g. rgb({ hue: 255, saturation: 0.4, lightness: 0.75, alpha: 0.7 }).');
+    });
+});

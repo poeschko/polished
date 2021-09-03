@@ -1,0 +1,56 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var _pxto_1 = require("../_pxto");
+describe('pxto', function () {
+    var em;
+    describe('factory', function () {
+        it('should allow creating a simple pixels-to-x converter', function () {
+            em = (0, _pxto_1.default)('em');
+            expect(em).toBeInstanceOf(Function);
+        });
+    });
+    describe('converter', function () {
+        it('should convert a simple number to ems', function () {
+            expect({ height: em(16) }).toEqual({
+                height: '1em',
+            });
+        });
+        it('should convert a simple string with px to ems', function () {
+            expect({ height: em('16px') }).toEqual({
+                height: '1em',
+            });
+        });
+        it('should convert a complex number to ems', function () {
+            expect({ height: em(18) }).toEqual({
+                height: '1.125em',
+            });
+        });
+        it('should convert a complex string with px to ems', function () {
+            expect({ height: em('18px') }).toEqual({
+                height: '1.125em',
+            });
+        });
+        it('should allow changing the base with a number', function () {
+            expect({ height: em('16px', 8) }).toEqual({
+                height: '2em',
+            });
+        });
+        it('should allow changing the base with a string', function () {
+            expect({ height: em('16px', '8px') }).toEqual({
+                height: '2em',
+            });
+        });
+        it('should throw an error if a non-pixel value is passed for the first arg', function () {
+            expect(function () { return ({ height: em('10em') }); }).toThrow('Expected a string ending in "px" or a number passed as the first argument to em(), got 10em instead.');
+        });
+        it('should throw an error if a non-pixel value is passed for the second arg', function () {
+            expect(function () { return ({ height: em('10px', '16em') }); }).toThrow('Expected a string ending in "px" or a number passed as the second argument to em(), got 16em instead.');
+        });
+        it('should throw an error if an invalid pixel value is passed', function () {
+            expect(function () { return ({ height: em('apx') }); }).toThrow('Passed invalid pixel value apx to em(), please pass a value like "12px" or 12.');
+        });
+        it('should throw an error if an invalid base value is passed', function () {
+            expect(function () { return ({ height: em('16px', 'apx') }); }).toThrow('Passed invalid base value apx to em(), please pass a value like "12px" or 12.');
+        });
+    });
+});
