@@ -1,9 +1,9 @@
 // @flow
 import PolishedError from './_errors';
 
-import type { InteractionState } from '../types/interactionState';
+import type { InteractionStates } from '../types/interactionStates';
 
-function generateSelectors(template: Function, state: InteractionState): string {
+function generateSelectors(template: Function, state: InteractionStates): string {
   const stateSuffix = state ? `:${state}` : '';
   return template(stateSuffix);
 }
@@ -13,9 +13,9 @@ function generateSelectors(template: Function, state: InteractionState): string 
  * @private
  */
 function statefulSelectors(
-  states: Array<InteractionState>,
+  states: Array<InteractionStates>,
   template: Function,
-  stateMap?: Array<InteractionState>
+  stateMap?: Array<InteractionStates>
 ): string {
   if (!template) throw new PolishedError(67);
   if (states.length === 0) return generateSelectors(template, null);

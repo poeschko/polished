@@ -2,7 +2,7 @@
 import hslToHex from '../internalHelpers/_hslToHex';
 import PolishedError from '../internalHelpers/_errors';
 
-import type { HslColor } from '../types/color';
+import type { HslColor } from '../types/colorTypes';
 
 /**
  * Returns a string value for the color. The returned result is the smallest possible hex notation.

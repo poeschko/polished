@@ -1,6 +1,6 @@
 // @flow
 
-import type { HslColor, HslaColor, RgbColor, RgbaColor } from '../types/color';
+import type { HslColor, HslaColor, RgbColor, RgbaColor } from '../types/colorTypes';
 
 function rgbToHsl(color: RgbColor | RgbaColor): HslColor | HslaColor {
   // make sure rgb are contained in a set of [0, 255]

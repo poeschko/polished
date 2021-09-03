@@ -2,12 +2,12 @@
 import getValueAndUnit from '../helpers/getValueAndUnit';
 import PolishedError from '../internalHelpers/_errors';
 
-import type { SideKeyword } from '../types/sideKeyword';
+import type { SideKeywords } from '../types/sideKeyword';
 import type { Styles } from '../types/styles';
 import type { TriangleConfiguration } from '../types/triangleConfiguration';
 
 const getBorderWidth = (
-  pointingDirection: SideKeyword,
+  pointingDirection: SideKeywords,
   height: [number, string],
   width: [number, string]
 ): string => {
@@ -37,7 +37,7 @@ const getBorderWidth = (
   }
 };
 
-const getBorderColor = (pointingDirection: SideKeyword, foregroundColor: string): Object => {
+const getBorderColor = (pointingDirection: SideKeywords, foregroundColor: string): Object => {
   switch (pointingDirection) {
     case 'top':
     case 'bottomRight':

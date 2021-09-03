@@ -3,7 +3,7 @@ import parseToRGB from './parseToRgb';
 import rgb from './rgb';
 import PolishedError from '../internalHelpers/_errors';
 
-import type { RgbaColor } from '../types/color';
+import type { RgbaColor } from '../types/colorTypes';
 
 /**
  * Returns a string value for the color. The returned result is the smallest possible rgba or hex notation.

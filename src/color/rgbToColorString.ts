@@ -3,7 +3,7 @@ import rgb from './rgb';
 import rgba from './rgba';
 import PolishedError from '../internalHelpers/_errors';
 
-import type { RgbColor, RgbaColor } from '../types/color';
+import type { RgbColor, RgbaColor } from '../types/colorTypes';
 
 /**
  * Converts a RgbColor or RgbaColor object to a color string.

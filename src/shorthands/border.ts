@@ -1,7 +1,7 @@
 // @flow
 import capitalizeString from '../internalHelpers/_capitalizeString';
 
-import type { SideKeyword } from '../types/sideKeyword';
+import type { SideKeywords } from '../types/sideKeywords';
 import type { Styles } from '../types/styles';
 
 const sideMap = ['top', 'right', 'bottom', 'left'];
@@ -48,7 +48,7 @@ const sideMap = ['top', 'right', 'bottom', 'left'];
  */
 
 export default function border(
-  sideKeyword: SideKeyword | string | number,
+  sideKeyword: SideKeywords | string | number,
   ...values: Array<string | number>
 ): Styles {
   if (typeof sideKeyword === 'string' && sideMap.indexOf(sideKeyword) >= 0) {

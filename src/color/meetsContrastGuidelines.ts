@@ -1,7 +1,7 @@
 // @flow
 import getContrast from './getContrast';
 
-import type { ContrastScores } from '../types/color';
+import { ContrastScores } from '../types/colorTypes';
 
 /**
  * Determines which contrast guidelines have been met for two colors.

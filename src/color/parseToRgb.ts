@@ -3,7 +3,7 @@ import hslToRgb from '../internalHelpers/_hslToRgb';
 import nameToHex from '../internalHelpers/_nameToHex';
 import PolishedError from '../internalHelpers/_errors';
 
-import type { RgbColor, RgbaColor } from '../types/color';
+import type { RgbColor, RgbaColor } from '../types/colorTypes';
 
 const hexRegex = /^#[a-fA-F0-9]{6}$/;
 const hexRgbaRegex = /^#[a-fA-F0-9]{8}$/;

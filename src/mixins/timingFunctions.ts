@@ -1,5 +1,5 @@
 // @flow
-import type { TimingFunction } from '../types/timingFunction';
+import type { TimingFunctions } from '../types/timingFunctions';
 
 /* eslint-disable key-spacing */
 const functionsMap = {
@@ -59,6 +59,6 @@ function getTimingFunction(functionName: string): string {
  * }
  */
 
-export default function timingFunctions(timingFunction: TimingFunction): string {
+export default function timingFunctions(timingFunction: TimingFunctions): string {
   return getTimingFunction(timingFunction);
 }

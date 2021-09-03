@@ -1,7 +1,7 @@
 // @flow
 import statefulSelectors from '../internalHelpers/_statefulSelectors';
 
-import type { InteractionState } from '../types/interactionState';
+import { InteractionStates } from '../types/interactionStates';
 
 const stateMap = [undefined, null, 'active', 'focus', 'hover'];
 
@@ -62,6 +62,6 @@ function template(state: string): string {
  *   'border': 'none'
  * }
  */
-export default function textInputs(...states: Array<InteractionState>): string {
+export default function textInputs(...states: Array<InteractionStates>): string {
   return statefulSelectors(states, template, stateMap);
 }

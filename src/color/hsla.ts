@@ -3,7 +3,7 @@ import hslToHex from '../internalHelpers/_hslToHex';
 import hslToRgb from '../internalHelpers/_hslToRgb';
 import PolishedError from '../internalHelpers/_errors';
 
-import type { HslaColor } from '../types/color';
+import type { HslaColor } from '../types/colorTypes';
 
 /**
  * Returns a string value for the color. The returned result is the smallest possible rgba or hex notation.

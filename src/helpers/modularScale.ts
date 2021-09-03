@@ -1,10 +1,30 @@
-// @flow
 import getValueAndUnit from './getValueAndUnit';
 import PolishedError from '../internalHelpers/_errors';
 
-import type { ModularScaleRatio } from '../types/modularScaleRatio';
+import { ModularScaleRatios } from '../types/modularScaleRatios';
 
-export const ratioNames = {
+interface Ratios {
+  minorSecond: number;
+  majorSecond: number;
+  minorThird: number;
+  majorThird: number;
+  perfectFourth: number;
+  augFourth: number;
+  perfectFifth: number;
+  minorSixth: number;
+  goldenSection: number;
+  majorSixth: number;
+  minorSeventh: number;
+  majorSeventh: number;
+  octave: number;
+  majorTenth: number;
+  majorEleventh: number;
+  majorTwelfth: number;
+  doubleOctave: number;
+  [key: string]: number;
+}
+
+export const ratioNames: Ratios = {
   minorSecond: 1.067,
   majorSecond: 1.125,
   minorThird: 1.2,
@@ -52,7 +72,7 @@ function getRatio(ratioName: string): number {
 export default function modularScale(
   steps: number,
   base?: number | string = '1em',
-  ratio?: ModularScaleRatio = 1.333
+  ratio?: ModularScaleRatios = 1.333
 ): string {
   if (typeof steps !== 'number') {
     throw new PolishedError(42);

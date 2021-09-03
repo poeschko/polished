@@ -3,7 +3,7 @@ import hsl from './hsl';
 import hsla from './hsla';
 import PolishedError from '../internalHelpers/_errors';
 
-import type { HslColor, HslaColor } from '../types/color';
+import type { HslColor, HslaColor } from '../types/colorTypes';
 
 /**
  * Converts a HslColor or HslaColor object to a color string.
