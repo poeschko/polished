@@ -1,1 +1,1 @@
-export type InteractionStates = typeof undefined | null | 'active' | 'focus' | 'hover';
+export type InteractionStates = undefined | null | 'active' | 'focus' | 'hover';

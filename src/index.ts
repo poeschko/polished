@@ -33,7 +33,6 @@ import linearGradient from './mixins/linearGradient';
 import normalize from './mixins/normalize';
 import radialGradient from './mixins/radialGradient';
 import retinaImage from './mixins/retinaImage';
-import timingFunctions from './mixins/timingFunctions';
 import triangle from './mixins/triangle';
 import wordWrap from './mixins/wordWrap';
 
@@ -152,7 +151,6 @@ export {
   size,
   stripUnit,
   textInputs,
-  timingFunctions,
   tint,
   toColorString,
   transitions,

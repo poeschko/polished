@@ -25,6 +25,6 @@ import type { Styles } from '../types/styles';
  *   'borderLeftColor': 'yellow'
  * }
  */
-export default function borderColor(...values: Array<?string>): Styles {
+export default function borderColor(...values: Array<string>): Styles {
   return directionalProperty('borderColor', ...values);
 }

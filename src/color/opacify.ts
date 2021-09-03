@@ -35,9 +35,10 @@ function opacify(amount: number | string, color: string): string {
   if (color === 'transparent') return color;
   const parsedColor = parseToRgb(color);
   const alpha: number = typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1;
+  const parsedAmount = typeof amount === 'string' ? parseFloat(amount) : amount;
   const colorWithAlpha = {
     ...parsedColor,
-    alpha: guard(0, 1, (alpha * 100 + parseFloat(amount) * 100) / 100),
+    alpha: guard(0, 1, (alpha * 100 + parsedAmount * 100) / 100),
   };
   return rgba(colorWithAlpha);
 }

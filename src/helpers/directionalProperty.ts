@@ -16,8 +16,11 @@ function generateProperty(property: string, position: string) {
   return property === joinedProperty ? `${property}${position}` : joinedProperty;
 }
 
-function generateStyles(property: string, valuesWithDefaults: Array<?(string | ?number)>) {
-  const styles = {};
+function generateStyles(
+  property: string,
+  valuesWithDefaults: Array<string | number | null | undefined>
+) {
+  const styles: Styles = {};
   for (let i = 0; i < valuesWithDefaults.length; i += 1) {
     if (valuesWithDefaults[i] || valuesWithDefaults[i] === 0) {
       styles[generateProperty(property, positionMap[i])] = valuesWithDefaults[i];
@@ -50,10 +53,10 @@ function generateStyles(property: string, valuesWithDefaults: Array<?(string | ?
  */
 export default function directionalProperty(
   property: string,
-  ...values: Array<?(string | ?number)>
+  ...values: Array<string | number | null | undefined>
 ): Styles {
   //  prettier-ignore
-  const [firstValue, secondValue = firstValue, thirdValue = firstValue, fourthValue = secondValue] = values
+  const [firstValue, secondValue = firstValue, thirdValue = firstValue, fourthValue = secondValue] = values;
   const valuesWithDefaults = [firstValue, secondValue, thirdValue, fourthValue];
   return generateStyles(property, valuesWithDefaults);
 }

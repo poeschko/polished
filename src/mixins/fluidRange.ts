@@ -49,16 +49,16 @@ import type { Styles } from '../types/styles';
  */
 export default function fluidRange(
   cssProp: Array<FluidRangeConfiguration> | FluidRangeConfiguration,
-  minScreen?: string = '320px',
-  maxScreen?: string = '1200px'
+  minScreen: string = '320px',
+  maxScreen: string = '1200px'
 ): Styles {
   if ((!Array.isArray(cssProp) && typeof cssProp !== 'object') || cssProp === null) {
     throw new PolishedError(49);
   }
 
   if (Array.isArray(cssProp)) {
-    const mediaQueries = {};
-    const fallbacks = {};
+    const mediaQueries: Styles = {};
+    const fallbacks: Styles = {};
     for (const obj of cssProp) {
       if (!obj.prop || !obj.fromSize || !obj.toSize) {
         throw new PolishedError(50);

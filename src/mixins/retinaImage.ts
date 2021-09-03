@@ -35,9 +35,9 @@ import type { Styles } from '../types/styles';
 export default function retinaImage(
   filename: string,
   backgroundSize?: string,
-  extension?: string = 'png',
+  extension: string = 'png',
   retinaFilename?: string,
-  retinaSuffix?: string = '_2x'
+  retinaSuffix: string = '_2x'
 ): Styles {
   if (!filename) {
     throw new PolishedError(58);

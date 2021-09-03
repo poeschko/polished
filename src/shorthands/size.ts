@@ -20,7 +20,7 @@ import { Styles } from '../types/styles';
  *   'width': '250px',
  * }
  */
-export default function size(height: string | number, width?: string | number = height): Styles {
+export default function size(height: string | number, width: string | number = height): Styles {
   return {
     height,
     width,

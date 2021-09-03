@@ -1,5 +1,6 @@
 // @flow
 import curry from '../internalHelpers/_curry';
+import safeParseFloat from '../internalHelpers/_safeParseFloat';
 import mix from './mix';
 
 /**
@@ -27,7 +28,7 @@ import mix from './mix';
 
 function tint(percentage: number | string, color: string): string {
   if (color === 'transparent') return color;
-  return mix(parseFloat(percentage), 'rgb(255, 255, 255)', color);
+  return mix(safeParseFloat(percentage), 'rgb(255, 255, 255)', color);
 }
 
 // prettier-ignore

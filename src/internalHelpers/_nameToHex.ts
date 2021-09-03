@@ -1,5 +1,9 @@
 // @flow
-const namedColorMap = {
+interface NamedColorMap {
+  [key: string]: string;
+}
+
+const namedColorMap: NamedColorMap = {
   aliceblue: 'f0f8ff',
   antiquewhite: 'faebd7',
   aqua: '00ffff',

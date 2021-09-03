@@ -1,5 +1,6 @@
 // @flow
 import curry from '../internalHelpers/_curry';
+import safeParseFloat from '../internalHelpers/_safeParseFloat';
 import parseToHsl from './parseToHsl';
 import toColorString from './toColorString';
 
@@ -30,7 +31,7 @@ function setSaturation(saturation: number | string, color: string): string {
   if (color === 'transparent') return color;
   return toColorString({
     ...parseToHsl(color),
-    saturation: parseFloat(saturation),
+    saturation: safeParseFloat(saturation),
   });
 }
 

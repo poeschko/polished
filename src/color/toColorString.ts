@@ -5,25 +5,29 @@ import rgb from './rgb';
 import rgba from './rgba';
 import PolishedError from '../internalHelpers/_errors';
 
-const isRgb = (color: Object): boolean =>
+import type { HslColor, HslaColor, RgbColor, RgbaColor } from '../types/colorTypes';
+
+type ColorParameter = HslColor | HslaColor | RgbColor | RgbaColor;
+
+const isRgb = (color: ColorParameter): boolean =>
   typeof color.red === 'number' &&
   typeof color.green === 'number' &&
   typeof color.blue === 'number' &&
   (typeof color.alpha !== 'number' || typeof color.alpha === 'undefined');
 
-const isRgba = (color: Object): boolean =>
+const isRgba = (color: ColorParameter): boolean =>
   typeof color.red === 'number' &&
   typeof color.green === 'number' &&
   typeof color.blue === 'number' &&
   typeof color.alpha === 'number';
 
-const isHsl = (color: Object): boolean =>
+const isHsl = (color: ColorParameter): boolean =>
   typeof color.hue === 'number' &&
   typeof color.saturation === 'number' &&
   typeof color.lightness === 'number' &&
   (typeof color.alpha !== 'number' || typeof color.alpha === 'undefined');
 
-const isHsla = (color: Object): boolean =>
+const isHsla = (color: ColorParameter): boolean =>
   typeof color.hue === 'number' &&
   typeof color.saturation === 'number' &&
   typeof color.lightness === 'number' &&
@@ -60,7 +64,7 @@ const isHsla = (color: Object): boolean =>
  * }
  */
 
-export default function toColorString(color: Object): string {
+export default function toColorString(color: ColorParameter): string {
   if (typeof color !== 'object') throw new PolishedError(8);
   if (isRgba(color)) return rgba(color);
   if (isRgb(color)) return rgb(color);

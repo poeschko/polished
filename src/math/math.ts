@@ -5,9 +5,13 @@ import PolishedError from '../internalHelpers/_errors';
 const unitRegExp =
   /((?!\w)a|na|hc|mc|dg|me[r]?|xe|ni(?![a-zA-Z])|mm|cp|tp|xp|q(?!s)|hv|xamv|nimv|wv|sm|s(?!\D|$)|ged|darg?|nrut)/g;
 
+interface SymbolMap {
+  symbols: any;
+}
+
 // Merges additional math functionality into the defaults.
-function mergeSymbolMaps(additionalSymbols?: Object): Object {
-  const symbolMap = {};
+function mergeSymbolMaps(additionalSymbols?: SymbolMap): SymbolMap {
+  const symbolMap: SymbolMap = { symbols: null };
   symbolMap.symbols = additionalSymbols
     ? { ...defaultSymbolMap.symbols, ...additionalSymbols.symbols }
     : { ...defaultSymbolMap.symbols };
@@ -21,7 +25,7 @@ function exec(operators: Array<any>, values: Array<number>): Array<number | stri
   return op.precedence;
 }
 
-function calculate(expression: string, additionalSymbols?: Object): number {
+function calculate(expression: string, additionalSymbols?: SymbolMap): number {
   const symbolMap = mergeSymbolMaps(additionalSymbols);
 
   let match;
@@ -132,7 +136,7 @@ function reverseString(str: string): string {
  *   fontSize: '11px',
  * }
  */
-export default function math(formula: string, additionalSymbols?: Object): string {
+export default function math(formula: string, additionalSymbols?: SymbolMap): string {
   const reversedFormula = reverseString(formula);
   const formulaMatch = reversedFormula.match(unitRegExp);
 

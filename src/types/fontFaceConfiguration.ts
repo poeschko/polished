@@ -1,6 +1,6 @@
 export interface FontFaceConfiguration {
   fontFamily: string;
-  fontFilePath?: string;
+  fontFilePath: string;
   fontStretch?: string;
   fontStyle?: string;
   fontVariant?: string;

@@ -71,8 +71,8 @@ function getRatio(ratioName: string): number {
  */
 export default function modularScale(
   steps: number,
-  base?: number | string = '1em',
-  ratio?: ModularScaleRatios = 1.333
+  base: number | string = '1em',
+  ratio: ModularScaleRatios = 1.333
 ): string {
   if (typeof steps !== 'number') {
     throw new PolishedError(42);

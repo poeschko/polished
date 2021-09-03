@@ -1,17 +1,18 @@
 // @flow
 import getValueAndUnit from './getValueAndUnit';
 import PolishedError from '../internalHelpers/_errors';
+import safeParseFloat from '../internalHelpers/_safeParseFloat';
 
 const defaultFontSize = 16;
 
 function convertBase(base: string | number): number {
   const deconstructedValue = getValueAndUnit(base);
   if (deconstructedValue[1] === 'px') {
-    return parseFloat(base);
+    return safeParseFloat(base);
   }
 
   if (deconstructedValue[1] === '%') {
-    return (parseFloat(base) / 100) * defaultFontSize;
+    return (safeParseFloat(base) / 100) * defaultFontSize;
   }
 
   throw new PolishedError(78, deconstructedValue[1]);

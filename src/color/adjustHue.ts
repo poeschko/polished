@@ -1,6 +1,7 @@
-import parseToHsl = require('./parseToHsl');
-import toColorString = require('./toColorString');
-import curry = require('../internalHelpers/_curry');
+import parseToHsl from './parseToHsl';
+import toColorString from './toColorString';
+import curry from '../internalHelpers/_curry';
+import safeParseFloat from '../internalHelpers/_safeParseFloat';
 
 /**
  * Changes the hue of the color. Hue is a number between 0 to 360. The first
@@ -31,10 +32,10 @@ function adjustHue(degree: number | string, color: string): string {
   const hslColor = parseToHsl(color);
   return toColorString({
     ...hslColor,
-    hue: hslColor.hue + parseFloat(degree),
+    hue: hslColor.hue + safeParseFloat(degree),
   });
 }
 
 // prettier-ignore
-const curriedAdjustHue = curry/* ::<number | string, string, string> */(adjustHue)
+const curriedAdjustHue = curry/* ::<number | string, string, string> */(adjustHue);
 export default curriedAdjustHue;

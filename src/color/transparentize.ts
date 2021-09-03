@@ -1,8 +1,8 @@
-// @flow
 import curry from '../internalHelpers/_curry';
 import guard from '../internalHelpers/_guard';
 import rgba from './rgba';
 import parseToRgb from './parseToRgb';
+import safeParseFloat from '../internalHelpers/_safeParseFloat';
 
 /**
  * Decreases the opacity of a color. Its range for the amount is between 0 to 1.
@@ -37,7 +37,7 @@ function transparentize(amount: number | string, color: string): string {
   const alpha: number = typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1;
   const colorWithAlpha = {
     ...parsedColor,
-    alpha: guard(0, 1, +(alpha * 100 - parseFloat(amount) * 100).toFixed(2) / 100),
+    alpha: guard(0, 1, +(alpha * 100 - safeParseFloat(amount) * 100).toFixed(2) / 100),
   };
   return rgba(colorWithAlpha);
 }

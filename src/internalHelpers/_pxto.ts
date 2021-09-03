@@ -9,7 +9,7 @@ import PolishedError from './_errors';
  */
 const pxtoFactory =
   (to: string) =>
-  (pxval: string | number, base?: string | number = '16px'): string => {
+  (pxval: string | number, base: string | number = '16px'): string => {
     let newPxval = pxval;
     let newBase = base;
     if (typeof pxval === 'string') {

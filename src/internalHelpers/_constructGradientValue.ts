@@ -1,5 +1,7 @@
-// @flow
-function constructGradientValue(literals: Array<string>, ...substitutions: Array<string>): string {
+export default function constructGradientValue(
+  literals: TemplateStringsArray,
+  ...substitutions: Array<string>
+): string {
   let template = '';
   for (let i = 0; i < literals.length; i += 1) {
     template += literals[i];
@@ -19,5 +21,3 @@ function constructGradientValue(literals: Array<string>, ...substitutions: Array
   }
   return template.trim();
 }
-
-export default constructGradientValue;

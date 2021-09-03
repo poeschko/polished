@@ -3,7 +3,7 @@ import statefulSelectors from '../internalHelpers/_statefulSelectors';
 
 import type { InteractionStates } from '../types/interactionStates';
 
-const stateMap = [undefined, null, 'active', 'focus', 'hover'];
+const stateMap: Array<InteractionStates> = [undefined, null, 'active', 'focus', 'hover'];
 
 function template(state: string): string {
   return `button${state},

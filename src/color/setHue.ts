@@ -1,5 +1,6 @@
 // @flow
 import curry from '../internalHelpers/_curry';
+import safeParseFloat from '../internalHelpers/_safeParseFloat';
 import parseToHsl from './parseToHsl';
 import toColorString from './toColorString';
 
@@ -30,7 +31,7 @@ function setHue(hue: number | string, color: string): string {
   if (color === 'transparent') return color;
   return toColorString({
     ...parseToHsl(color),
-    hue: parseFloat(hue),
+    hue: safeParseFloat(hue),
   });
 }
 

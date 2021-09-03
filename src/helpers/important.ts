@@ -18,7 +18,7 @@ import PolishedError from '../internalHelpers/_errors';
  *
  * // CSS as JS Output
  *
- * div: {
+ * div:
  *   'position': 'absolute !important',
  *   'top': '0 !important',
  *   'right: '0 !important',
@@ -31,7 +31,7 @@ export default function important(styleBlock: Styles, rules?: Array<string> | st
     throw new PolishedError(75, typeof styleBlock);
   }
 
-  const newStyleBlock = {};
+  const newStyleBlock: Styles = {};
 
   Object.keys(styleBlock).forEach(key => {
     if (typeof styleBlock[key] === 'object' && styleBlock[key] !== null) {

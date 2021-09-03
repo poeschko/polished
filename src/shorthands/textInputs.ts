@@ -1,9 +1,9 @@
 // @flow
 import statefulSelectors from '../internalHelpers/_statefulSelectors';
 
-import { InteractionStates } from '../types/interactionStates';
+import type { InteractionStates } from '../types/interactionStates';
 
-const stateMap = [undefined, null, 'active', 'focus', 'hover'];
+const stateMap: Array<InteractionStates> = [undefined, null, 'active', 'focus', 'hover'];
 
 function template(state: string): string {
   return `input[type="color"]${state},

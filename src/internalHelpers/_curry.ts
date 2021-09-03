@@ -1,5 +1,3 @@
-// @flow
-
 // Type definitions taken from https://github.com/gcanti/flow-static-land/blob/master/src/Fun.js
 type Fn1<A, B> = (a: A, ...rest: Array<void>) => B;
 type Fn2<A, B, C> = (a: A, b: B, ...rest: Array<void>) => C;

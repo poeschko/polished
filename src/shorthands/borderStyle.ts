@@ -25,6 +25,6 @@ import type { Styles } from '../types/styles';
  *   'borderLeftStyle': 'double'
  * }
  */
-export default function borderStyle(...values: Array<?string>): Styles {
+export default function borderStyle(...values: Array<string>): Styles {
   return directionalProperty('borderStyle', ...values);
 }

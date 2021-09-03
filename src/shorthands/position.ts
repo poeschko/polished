@@ -49,9 +49,9 @@ const positionMap = ['absolute', 'fixed', 'relative', 'static', 'sticky'];
  */
 export default function position(
   firstValue?: string | number | null,
-  ...values: Array<?(string | ?number)>
+  ...values: Array<string | number>
 ): Styles {
-  if (positionMap.indexOf(firstValue) >= 0 && firstValue) {
+  if (typeof firstValue === 'string' && positionMap.indexOf(firstValue) >= 0) {
     return {
       ...directionalProperty('', ...values),
       position: firstValue,

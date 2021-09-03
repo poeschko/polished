@@ -1,6 +1,7 @@
 // @flow
 import curry from '../internalHelpers/_curry';
 import guard from '../internalHelpers/_guard';
+import safeParseFloat from '../internalHelpers/_safeParseFloat';
 import parseToHsl from './parseToHsl';
 import toColorString from './toColorString';
 
@@ -33,7 +34,7 @@ function desaturate(amount: number | string, color: string): string {
   const hslColor = parseToHsl(color);
   return toColorString({
     ...hslColor,
-    saturation: guard(0, 1, hslColor.saturation - parseFloat(amount)),
+    saturation: guard(0, 1, hslColor.saturation - safeParseFloat(amount)),
   });
 }
 

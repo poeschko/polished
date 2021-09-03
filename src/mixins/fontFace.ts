@@ -7,7 +7,11 @@ import type { Styles } from '../types/styles';
 const dataURIRegex =
   /^\s*data:([a-z]+\/[a-z-]+(;[a-z-]+=[a-z-]+)?)?(;charset=[a-z0-9-]+)?(;base64)?,[a-z0-9!$&',()*+,;=\-._~:@/?%\s]*\s*$/i;
 
-const formatHintMap = {
+interface FormatHintMap {
+  [key: string]: string;
+}
+
+const formatHintMap: FormatHintMap = {
   woff: 'woff',
   woff2: 'woff2',
   ttf: 'truetype',
@@ -47,7 +51,7 @@ function generateLocalReferences(localFonts: Array<string>): string {
 }
 
 function generateSources(
-  fontFilePath?: string,
+  fontFilePath: string,
   localFonts: Array<string> | null,
   fileFormats: Array<string>,
   formatHint: boolean

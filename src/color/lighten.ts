@@ -30,9 +30,10 @@ import toColorString from './toColorString';
 function lighten(amount: number | string, color: string): string {
   if (color === 'transparent') return color;
   const hslColor = parseToHsl(color);
+  const parsedAmount = typeof amount === 'string' ? parseFloat(amount) : amount;
   return toColorString({
     ...hslColor,
-    lightness: guard(0, 1, hslColor.lightness + parseFloat(amount)),
+    lightness: guard(0, 1, hslColor.lightness + parsedAmount),
   });
 }
 
